@@ -35,5 +35,16 @@
 */
 
 string taskX(int number) {
-	return "error";
+	if (number < 0) {
+		return "error";
+	}
+
+	int hour = number / 60 / 60 % 24;
+	int minute = number / 60 % 60;
+	int second = number % 60;
+
+	string s = to_string(hour) + ":";
+	s += (minute < 10 ? "0" : "") + to_string(minute) + ":";
+	s += (second < 10 ? "0" : "") + to_string(second);
+	return s;
 }
